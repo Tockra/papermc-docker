@@ -1,0 +1,39 @@
+version: '3.7'
+
+services:
+  db:
+    image: mongo
+    environment:
+      - MONGO_INITDB_DATABASE=dogecraft
+      - MONGO_INITDB_ROOT_USERNAME=mongo_root
+      - MONGO_INITDB_ROOT_PASSWORD=choose_your_root_password!
+    volumes:
+      - ./data/db/:/data/db
+      - ./build/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    ports:
+      - '27017-27019:27017-27019'
+
+  minecraft:
+    build:
+        context: ./build
+        args:
+            git_name: "Max Mustermann"
+            git_email: "max.mustermann@musterdomain.de"
+            version: "master"
+    container_name: minecraft
+    depends_on: 
+        - db
+    stdin_open: true
+    tty: true
+    restart: always
+    ports:
+      - 25565:25565
+    volumes:
+      - ./data/minecraft/configs/:/root/configs/
+      - ./data/minecraft/world/:/root/world/
+      - ./data/minecraft/world_nether/:/root/world_nether/
+      - ./data/minecraft/world_the_end/:/root/world_the_end/
+      - ./data/minecraft/plugins/:/root/plugins/
+      - ./data/minecraft/configs/ops.json:/root/ops.json
+      - ./data/minecraft/configs/whitelist.json:/root/whitelist.json
+
