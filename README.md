@@ -6,7 +6,6 @@ FYI: This container contains a mongodb instance. You can remove it fully from th
       - '27017-27019:27017-27019'
 ...
 ```
-Additional you can remove the folder `./data/minecraft/configs/wallet`
 ## Build
 You can build the server with:
 ```bash
