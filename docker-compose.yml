@@ -21,6 +21,7 @@ services:
             git_email: "max.mustermann@musterdomain.de"
             version: "master"
     container_name: minecraft
+    stop_grace_period: 2m
     depends_on: 
         - db
     stdin_open: true
