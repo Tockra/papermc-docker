@@ -25,4 +25,5 @@ services:
       - ./data/minecraft/plugins/:/root/plugins/
       - ./data/minecraft/configs/ops.json:/root/ops.json
       - ./data/minecraft/configs/whitelist.json:/root/whitelist.json
-
+      - ./data/minecraft/configs/banned-ips.json:/root/banned-ips.json
+      - ./data/minecraft/configs/banned-players.json:/root/banned-players.json
