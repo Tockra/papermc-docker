@@ -10,8 +10,6 @@ services:
             version: "master"
     container_name: minecraft
     stop_grace_period: 2m
-    depends_on: 
-        - db
     stdin_open: true
     tty: true
     restart: always
