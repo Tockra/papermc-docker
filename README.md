@@ -1,11 +1,4 @@
 # PaperMC Docker Container
-FYI: This container contains a mongodb instance. You can remove it fully from the `docker-compose.yml`if you don't want to use it. It's inside this project because it will be used for a other minecraft server project. Further if you want to use the mongodb you should remove the port forwarding from the `docker-compose.yml`. : 
-```yml
-...
-  ports:
-      - '27017-27019:27017-27019'
-...
-```
 ## Build
 You can build the server with:
 ```bash
